@@ -1,0 +1,19 @@
+{
+  "name": "animali",
+  "version": "1.0.0",
+  "description": "bestie",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server/index.js"
+  },
+  "author": "Rocco Civitillo",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.1.1",
+    "express": "^4.16.3",
+    "jquery": "^3.3.1",
+    "livereload": "^0.7.0",
+    "path": "^0.12.7",
+    "popper.js": "^1.14.3"
+  }
+}
