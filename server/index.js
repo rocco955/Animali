@@ -2,6 +2,7 @@ var express = require('express');
 var path = require('path');
 
 const PORT = 3000;
+var animali = require('./animali').animali
 var app = express();
 
 app.use('/bootstrap', express.static(path.join(__dirname, '..', 'node_modules', 'bootstrap', 'dist')));
@@ -22,6 +23,10 @@ var cani = require('./cani');
 
 app.use('/gatti', gatti); //inizio della rotta, e chi la gestisce
 app.use('/cani', cani); //inizio della rotta, e chi la gestisce
+
+app.get('/animali', function (req, res){
+    res.json(animali)
+})
 
 app.listen(PORT, function () {
     console.log("Server in esecuzione")
