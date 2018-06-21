@@ -39,7 +39,7 @@ $('#gattibtn').on('click', function () {
         .then(function (gatti) {
             //console.log(gatti)
             var listaAnimali = $('#animali')
-            listaAnimali.html('')            
+            listaAnimali.html('')
             var table = $('<table></table>').addClass('table');
             var thead = $('<thead></thead>')
             var trtitolo = $('<tr></tr>')
@@ -93,7 +93,7 @@ $('#canibtn').on('click', function () {
         .then(function (cani) {
             //console.log(gatti)
             var listaAnimali = $('#animali')
-            listaAnimali.html('')            
+            listaAnimali.html('')
             var table = $('<table></table>').addClass('table');
             var thead = $('<thead></thead>')
             var trtitolo = $('<tr></tr>')
@@ -189,6 +189,64 @@ $('#animalibtn').on('click', function () {
 
 
             });
+
+
+
+        })
+
+})
+
+$('#cerca').on('submit', function (e) {
+    e.preventDefault(); //azzera l'azione del submit, e non ricarica la pagina
+    var nome = this['ricerca'].value
+
+    var listaAnimali = $('#animali')
+    listaAnimali.html('')
+    var table = $('<table></table>').addClass('table');
+    var thead = $('<thead></thead>')
+    var trtitolo = $('<tr></tr>')
+    var thid = $('<th></th>').html('#')
+    var thnome = $('<th></th>').html('Nome')
+    var thrazza = $('<th></th>').html('Razza')
+    var thimmagine = $('<th></th>').html('Immagine')
+    var tbody = $('<tbody></tbody>')
+
+    fetch('http://localhost:3000/gatti/' + nome)
+        .then(function (res) {
+            return res.json();
+        })
+        .then(function (trovato) {
+            //console.log(gatti)
+
+
+            table.appendTo(listaAnimali);
+            thead.appendTo(table);
+            tbody.appendTo(table);
+            trtitolo.appendTo(thead);
+            thid.appendTo(trtitolo);
+            thnome.appendTo(trtitolo);
+            thrazza.appendTo(trtitolo);
+            thimmagine.appendTo(trtitolo);
+
+
+            var trcani = $('<tr></tr>')
+            var tdid = $('<td></td>').html(trovato.id)
+            var tdnome = $('<td></td>').html(trovato.nome)
+            var tdrazza = $('<td></td>').html(trovato.razza)
+            var tdimmagine = $('<td></td>')
+            var immagine = $('<img></img>').addClass('img-fluid').attr("src", trovato.immagine).css('width', '150px')
+
+
+
+            trcani.appendTo(tbody);
+            tdid.appendTo(trcani);
+            tdnome.appendTo(trcani);
+            tdrazza.appendTo(trcani);
+            tdimmagine.appendTo(trcani);
+            immagine.appendTo(tdimmagine);
+
+
+
 
 
 
