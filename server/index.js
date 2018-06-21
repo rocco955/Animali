@@ -25,7 +25,23 @@ app.use('/gatti', gatti); //inizio della rotta, e chi la gestisce
 app.use('/cani', cani); //inizio della rotta, e chi la gestisce
 
 app.get('/animali', function (req, res){
-    res.json(animali)
+    var nome = req.query.nome;
+    if (nome)
+ {
+     var trovati = animali.filter(function(animale){
+         return animale.nome == nome
+     })
+     res.json(trovati);
+ }    
+ res.json(animali)
+})
+
+app.get('/animali/:id', function(req, res) {
+    var id = req.params.id;
+    var trovato = animali.find(function(animale) {
+        return animale.id == id;
+    })
+    res.json(trovato);
 })
 
 app.listen(PORT, function () {

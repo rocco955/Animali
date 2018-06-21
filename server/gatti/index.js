@@ -22,6 +22,15 @@ gatti.get('/:nome', function (req, res) {
     res.json(gatto);
 })
 
+gatti.get('/:id(\\d+)', function (req, res) {
+    var felini = animali.filter(function (animale) {
+        return animale.razza == 'felina';
+    })
+    var gatto = felini.find(function (felino) {
+        return felino.id == req.params.id;
+    })
+    res.json(gatto);
+})
 
 
 module.exports = gatti;
