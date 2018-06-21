@@ -14,16 +14,24 @@
 <body>
     <h1 id="listaAnimali" class="text-center mt-5">Animali Fantastici</h1>
     <div class="row">
-        <div class="col-md-12 text-center mt-5 mb-5">
-            <button type="button" class="btn btn-primary" id="canibtn">Cani</button>
-            <button type="button" class="btn btn-secondary" id="gattibtn">Gatti</button>
-            <button type="button" class="btn btn-success" id="animalibtn">Animali</button>
-        </div>
         <div class="col-md-12 text-center mb-5">
             <form id="cerca">
                 <input type="text" name="ricerca" placeholder="Cerca">
             </form>
         </div>
+    </div>
+    <div class="container">
+    <div class="input-group mb-3 text-center mb-5">
+        <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Seleziona Animali</label>
+        </div>
+        <select class="custom-select" id="selectanimali">
+            <option selected disabled>Scegli...</option>
+            <option value="cani">Cani</option>
+            <option value="gatti">Gatti</option>
+            <option value="animali">Animali</option>
+        </select>
+    </div>
     </div>
 
         <div class= "container" id="animali">
